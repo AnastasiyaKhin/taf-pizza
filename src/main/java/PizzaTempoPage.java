@@ -17,9 +17,7 @@ public class PizzaTempoPage {
 
     private String xPathDrinkChoiceLink = "//a[@href='https://www.pizzatempo.by/menu/napitki.html']";
     private String xPathDrinkSpriteButton = "//span[contains(text(), 'Спрайт')]/ancestor::div[contains(@class, 'item')]//button";
-
     WebDriver driver;
-
     public PizzaTempoPage(WebDriver driver) {
         this.driver = driver;
     }

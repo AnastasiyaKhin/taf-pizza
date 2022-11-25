@@ -1,24 +1,21 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
+import driver.Driver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.time.Duration;
+import page.BasePage;
 
 public class BaseTest {
     WebDriver driver;
 
+    BasePage basePage = new BasePage();
+
     @BeforeEach
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        basePage.openPizzaTempoPage();
     }
 
     @AfterEach
     public void closeWebDiver() {
-        driver.quit();
+        Driver.closeDriver();
     }
 }

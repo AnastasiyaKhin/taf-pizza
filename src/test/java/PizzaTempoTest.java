@@ -1,24 +1,19 @@
+import page.BasePage;
+import page.BasketPage;
+import steps.Steps;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
 public class PizzaTempoTest extends BaseTest {
+    BasketPage basketPage = new BasketPage();
     @Test
     void testOrderPizzaMargarita(){
+        Steps steps = new Steps();
+        steps.addPizzaMargaritaToBasket();
+        steps.addDrinkSpriteToBasket();
+        steps.checkBasket();
 
-        PizzaTempoPage page = new PizzaTempoPage(driver);
-
-        page.openPizzaTempoPage();
-        page.clickPizzaChoiceLink();
-        page.clickPizzaMargaritaButton();
-        page.clickPizzaMargaritaChoiceDough();
-        page.clickPizzaMargaritaChoiceSize();
-        page.clickPizzaMargaritaOrderButton();
-        page.clickDrinkChoiceLink();
-        page.clickDrinkSpriteButton();
-        page.clickPizzaBasketLink();
-
-        Assertions.assertEquals(page.EXPECTED_RESULT_ORDER_PIZZA,page.getPizzaOrderText());
-        Assertions.assertEquals(page.EXPECTED_RESULT_ORDER_DRINK,page.getDrinkOrderText());
+        Assertions.assertEquals(basketPage.EXPECTED_RESULT_ORDER_PIZZA, basketPage.getPizzaOrderText());
+        Assertions.assertEquals(basketPage.EXPECTED_RESULT_ORDER_DRINK,basketPage.getDrinkOrderText());
     }
 }

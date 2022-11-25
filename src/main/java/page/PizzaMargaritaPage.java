@@ -1,8 +1,6 @@
 package page;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class PizzaMargaritaPage extends BasePage {
 
@@ -40,6 +38,4 @@ public class PizzaMargaritaPage extends BasePage {
         clickOnElement(pizzaMargaritaOrderButton);
         return this;
     }
-
-
 }

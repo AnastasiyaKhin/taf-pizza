@@ -10,9 +10,11 @@ import static constant.Constant.IMPLICIT_WAIT;
 
 public class Driver {
     private static WebDriver driver;
-    private Driver(){
+
+    private Driver() {
     }
-    public static WebDriver getInstance(){
+
+    public static WebDriver getInstance() {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
@@ -23,7 +25,8 @@ public class Driver {
         }
         return driver;
     }
-    public static void closeDriver(){
+
+    public static void closeDriver() {
         driver.quit();
     }
 }
